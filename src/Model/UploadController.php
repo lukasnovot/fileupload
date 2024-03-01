@@ -41,10 +41,9 @@ class UploadController extends \Nette\Application\UI\Control {
 	 * @param \Zet\FileUpload\FileUploadControl $uploadControl
 	 */
 	public function __construct(\Zet\FileUpload\FileUploadControl $uploadControl) {
-		parent::__construct();
 		$this->uploadControl = $uploadControl;
 	}
-	
+
 	/**
 	 * @param \Nette\Http\Request $request
 	 */
@@ -98,7 +97,7 @@ class UploadController extends \Nette\Application\UI\Control {
 		
 		return $this->renderer;
 	}
-	
+
 	/**
 	 * Vytvoření šablony s JavaScriptem pro FileUpload.
 	 *
@@ -182,7 +181,7 @@ class UploadController extends \Nette\Application\UI\Control {
 	public function handleRemove() {
 		$id = $this->request->getQuery("id");
 		$token = $this->request->getQuery("token");
-		$default = $this->request->getQuery("default", 0);
+		$default = $this->request->getQuery("default");
 		
 		if($default == 0) {
 			$cache = $this->uploadControl->getCache();
